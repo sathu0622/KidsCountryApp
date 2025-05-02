@@ -5,7 +5,7 @@ import Games from './pages/Games';
 import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Layout from './components/Layout';
+import Layout from './components/LayOut';
 import LandingPage from './pages/LandingPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
