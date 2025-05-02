@@ -6,7 +6,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Layout({ children }) {
   const { token, setToken, theme, setTheme } = useAuth();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const currentTheme = themes[theme];
   
   const handleLogout = () => {
