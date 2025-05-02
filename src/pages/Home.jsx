@@ -144,49 +144,62 @@ export default function Home() {
           </div>
           
           {/* Pagination */}
-          {countries.length > countriesPerPage && (
-            <div className="flex justify-center mt-8">
-              <nav className="flex items-center gap-1">
-                <button
-                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                  disabled={currentPage === 1}
-                  className="px-3 py-1 rounded disabled:opacity-50"
-                  style={{ 
-                    backgroundColor: currentPage === 1 ? '#e5e7eb' : currentTheme.primary,
-                    color: currentPage === 1 ? '#6b7280' : 'white'
-                  }}
-                >
-                  Prev
-                </button>
-                
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'font-bold' : ''}`}
-                    style={{ 
-                      backgroundColor: currentPage === i + 1 ? currentTheme.primary : '#e5e7eb',
-                      color: currentPage === i + 1 ? 'white' : currentTheme.text
-                    }}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-                
-                <button
-                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                  disabled={currentPage === totalPages}
-                  className="px-3 py-1 rounded disabled:opacity-50"
-                  style={{ 
-                    backgroundColor: currentPage === totalPages ? '#e5e7eb' : currentTheme.primary,
-                    color: currentPage === totalPages ? '#6b7280' : 'white'
-                  }}
-                >
-                  Next
-                </button>
-              </nav>
-            </div>
-          )}
+          <div className="flex justify-center mt-8">
+  <nav className="flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base">
+    <button
+      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+      disabled={currentPage === 1}
+      className="px-3 py-1 rounded-full font-medium transition disabled:opacity-50"
+      style={{
+        backgroundColor: currentPage === 1 ? '#f3f4f6' : currentTheme.primary,
+        color: currentPage === 1 ? '#9ca3af' : 'white'
+      }}
+    >
+      ⬅ Prev
+    </button>
+
+    {/* Dynamic page numbers with ellipsis for better UX */}
+    {Array.from({ length: totalPages }, (_, i) => i + 1)
+      .filter(page =>
+        page === 1 || 
+        page === totalPages || 
+        (page >= currentPage - 1 && page <= currentPage + 1)
+      )
+      .map(page => (
+        <button
+          key={page}
+          onClick={() => setCurrentPage(page)}
+          className={`px-3 py-1 rounded-full transition font-medium ${
+            currentPage === page ? 'scale-105 shadow' : ''
+          }`}
+          style={{
+            backgroundColor: currentPage === page ? currentTheme.primary : '#f3f4f6',
+            color: currentPage === page ? 'white' : currentTheme.text
+          }}
+        >
+          {page}
+        </button>
+      ))}
+
+    {/* Ellipsis logic */}
+    {currentPage < totalPages - 2 && totalPages > 5 && (
+      <span className="px-2 text-gray-500">...</span>
+    )}
+
+    <button
+      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+      disabled={currentPage === totalPages}
+      className="px-3 py-1 rounded-full font-medium transition disabled:opacity-50"
+      style={{
+        backgroundColor: currentPage === totalPages ? '#f3f4f6' : currentTheme.primary,
+        color: currentPage === totalPages ? '#9ca3af' : 'white'
+      }}
+    >
+      Next ➡
+    </button>
+  </nav>
+</div>
+
         </>
       )}
       
