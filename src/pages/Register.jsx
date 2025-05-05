@@ -15,7 +15,7 @@ export default function Register() {
   const handleRegister = async () => {
     try {
       setError("");
-      const res = await axios.post("http://localhost:5000/api/users/register", {
+      const res = await axios.post("https://country-app-backend.vercel.app/api/users/register", {
         email,
         password,
       });

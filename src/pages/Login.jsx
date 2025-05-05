@@ -15,7 +15,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       setError("");
-      const res = await axios.post("http://localhost:5000/api/users/login", {
+      const res = await axios.post("https://country-app-backend.vercel.app/api/users/login", {
         email,
         password,
       });

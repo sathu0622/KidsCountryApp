@@ -46,7 +46,7 @@ export default function Home() {
     const fetchLikedCountries = async () => {
       if (!token) return;
       try {
-        const response = await fetch('http://localhost:5000/api/users/likes', {
+        const response = await fetch('https://country-app-backend.vercel.app/api/users/likes', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
