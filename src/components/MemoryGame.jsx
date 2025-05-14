@@ -88,7 +88,7 @@ export default function MemoryGame() {
             <div 
               key={card.id}
               onClick={() => handleClick(card.id)}
-              className={`aspect-square flex items-center justify-center rounded-lg cursor-pointer transition-all duration-300 transform ${flipped.includes(card.id) || solved.includes(card.id) ? 'rotate-y-180' : ''} ${solved.includes(card.id) ? 'bg-green-200' : flipped.includes(card.id) ? 'bg-blue-200' : 'bg-indigo-200'}`}
+              className={`aspect-square flex items-center justify-center rounded-lg cursor-pointer transition-all duration-300 transform ${flipped.includes(card.id) || solved.includes(card.id) ? 'rotate-y-360' : ''} ${solved.includes(card.id) ? 'bg-green-200' : flipped.includes(card.id) ? 'bg-blue-200' : 'bg-indigo-200'}`}
             >
               {flipped.includes(card.id) || solved.includes(card.id) ? (
                 <div className="text-center">
