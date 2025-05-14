@@ -24,80 +24,141 @@ export default function Login() {
         navigate("/home");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed. Please try again.");
+      setError(err.response?.data?.message || "Oops! Something went wrong. Please try again!");
     }
   };
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center"
-      style={{ backgroundColor: currentTheme.bg }}
+      className="min-h-screen flex items-center justify-center p-4"
     >
       <div 
-        className="p-8 rounded-xl shadow-md w-full max-w-md"
+        className="p-8 rounded-2xl shadow-lg w-full max-w-md relative overflow-hidden"
         style={{ 
-          backgroundColor: currentTheme.cardBg,
-          border: `1px solid ${currentTheme.primary}20`
+          backgroundColor: `${currentTheme.cardBg}cc`,
+          border: `4px solid ${currentTheme.primary}`,
+          backdropFilter: "blur(5px)"
         }}
       >
+        {/* Decorative elements */}
+        <div 
+          className="absolute -top-10 -left-10 w-20 h-20 rounded-full"
+          style={{ backgroundColor: currentTheme.accent, opacity: 0.3 }}
+        ></div>
+        <div 
+          className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full"
+          style={{ backgroundColor: currentTheme.primary, opacity: 0.3 }}
+        ></div>
+        
         <h2 
-          className="text-2xl font-bold mb-6 text-center"
-          style={{ color: currentTheme.primary }}
+          className="text-3xl font-bold mb-6 text-center"
+          style={{ 
+            color: currentTheme.primary,
+            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
+            fontFamily: "'Comic Sans MS', cursive"
+          }}
         >
-          Login
+          Welcome Back! 👋
         </h2>
+        
         {error && (
           <div 
-            className="mb-4 p-2 text-center rounded"
+            className="mb-4 p-3 text-center rounded-lg flex items-center justify-center"
             style={{ 
               backgroundColor: `${currentTheme.accent}20`,
-              color: currentTheme.accent
+              color: currentTheme.accent,
+              border: `2px dashed ${currentTheme.accent}`
             }}
           >
+            <span className="mr-2">⚠️</span>
             {error}
           </div>
         )}
-        <input
-          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          style={{
-            borderColor: currentTheme.primary,
-            '--tw-ring-color': currentTheme.primary
-          }}
-        />
-        <input
-          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2"
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          style={{
-            borderColor: currentTheme.primary,
-            '--tw-ring-color': currentTheme.primary
-          }}
-        />
+        
+        <div className="mb-4">
+          <label 
+            className="block mb-2 font-medium"
+            style={{ color: currentTheme.primary }}
+          >
+            Your Email
+          </label>
+          <input
+            className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-4 text-lg"
+            placeholder="example@email.com"
+            onChange={(e) => setEmail(e.target.value)}
+            style={{
+              borderColor: currentTheme.primary,
+              '--tw-ring-color': currentTheme.primary,
+              backgroundColor: `${currentTheme.cardBg}80`
+            }}
+          />
+        </div>
+        
+        <div className="mb-6">
+          <label 
+            className="block mb-2 font-medium"
+            style={{ color: currentTheme.primary }}
+          >
+            Secret Password
+          </label>
+          <input
+            className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-4 text-lg"
+            type="password"
+            placeholder="••••••••"
+            onChange={(e) => setPassword(e.target.value)}
+            style={{
+              borderColor: currentTheme.primary,
+              '--tw-ring-color': currentTheme.primary,
+              backgroundColor: `${currentTheme.cardBg}80`
+            }}
+          />
+        </div>
+        
         <button
-          className="w-full text-white font-semibold py-2 rounded-md transition-colors"
+          className="w-full text-white font-bold py-3 rounded-xl transition-all text-xl hover:scale-105 active:scale-95 shadow-md"
           onClick={handleLogin}
           style={{ 
             backgroundColor: currentTheme.primary,
-            '&:hover': {
-              backgroundColor: currentTheme.buttonHover
-            }
+            fontFamily: "'Comic Sans MS', cursive"
           }}
         >
-          Login
+          Let's Play! 🎉
         </button>
-        <p className="mt-4 text-sm text-center">
-          Don't have an account?{" "}
+        
+        <p 
+          className="mt-6 text-center text-lg"
+          style={{ color: currentTheme.primary }}
+        >
+          New friend?{" "}
           <Link 
             to="/register" 
-            className="hover:underline"
-            style={{ color: currentTheme.primary }}
+            className="font-bold hover:underline"
+            style={{ color: currentTheme.accent }}
           >
-            Register
+            Join the fun!
           </Link>
         </p>
+        
+        <div className="flex justify-center mt-4">
+          <div 
+            className="mx-2 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform"
+            style={{ backgroundColor: currentTheme.primary }}
+          >
+            <span className="text-white text-xl">🐶</span>
+          </div>
+          <div 
+            className="mx-2 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform"
+            style={{ backgroundColor: currentTheme.accent }}
+          >
+            <span className="text-white text-xl">🐱</span>
+          </div>
+          <div 
+            className="mx-2 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform"
+            style={{ backgroundColor: currentTheme.primary }}
+          >
+            <span className="text-white text-xl">🐻</span>
+          </div>
+        </div>
       </div>
     </div>
   );
