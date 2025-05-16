@@ -1,20 +1,3 @@
-// const BASE_URL = 'https://restcountries.com/v3.1';
-
-// export const getAllCountries = () => fetch(`${BASE_URL}/all`).then(res => res.json());
-// export const getCountryByName = async (name) => {
-//     try {
-//       const res = await fetch(`${BASE_URL}/name/${name}`);
-//       if (!res.ok) throw new Error('Country not found');
-//       return await res.json();
-//     } catch (err) {
-//       return []; // Return empty array if not found
-//     }
-//   };
-  
-// export const getCountriesByRegion = (region) => fetch(`${BASE_URL}/region/${region}`).then(res => res.json());
-// export const getCountryByCode = (code) => fetch(`${BASE_URL}/alpha/${code}`).then(res => res.json());
-
-
 const BASE_URL = 'https://restcountries.com/v3.1';
 
 export const getAllCountries = async () => {
