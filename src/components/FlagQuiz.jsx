@@ -91,7 +91,7 @@ export default function FlagQuiz() {
           {selectedAnswer && (
             <div className="text-center">
               <p className={`text-lg font-bold mb-4 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
-                {isCorrect ? '✅ Correct!' : '❌ Incorrect!'}
+                {isCorrect ? '🟢 Correct!' : '🔴 Incorrect!'}
               </p>
               <button
                 onClick={nextQuestion}
