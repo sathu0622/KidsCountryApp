@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Add this to your global CSS */
+/* Add this to your global CSS
 .flip-card {
   perspective: 1000px;
 }
@@ -31,4 +31,4 @@
 
 .flip-card-back {
   transform: rotateY(180deg);
-}
+} */

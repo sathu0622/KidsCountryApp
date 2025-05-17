@@ -29,7 +29,7 @@ export default function Layout({ children }) {
       className="min-h-screen flex flex-col"
       style={{ 
         backgroundColor: currentTheme.bg,
-        fontFamily: "'Comic Sans MS', cursive, sans-serif"
+        // fontFamily: "'Comic Sans MS', cursive, sans-serif"
       }}
     >
       {/* Navigation */}
@@ -54,7 +54,7 @@ export default function Layout({ children }) {
               className="p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition hover:scale-110 text-2xl"
               aria-label={`Switch to ${theme === 'boys' ? 'girls' : 'boys'} theme`}
             >
-              {theme === 'boys' ? '🌸' : '❄️'}
+              {theme === 'boys' ? '🩷' : '💙'}
             </button>
             <div className="flex space-x-6 text-white text-lg">
               <Link to="/home" className="hover:underline flex items-center">
@@ -102,7 +102,7 @@ export default function Layout({ children }) {
                 className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition text-2xl hover:scale-110"
                 aria-label={`Switch to ${theme === 'boys' ? 'girls' : 'boys'} theme`}
               >
-                {theme === 'boys' ? '🌸' : '❄️'}
+                {theme === 'boys' ? '🩷' : '💙'}
               </button>
             </div>
             <div className="flex flex-col items-center space-y-3 text-white text-lg">

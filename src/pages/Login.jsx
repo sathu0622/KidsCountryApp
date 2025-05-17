@@ -55,7 +55,7 @@ export default function Login() {
           style={{ 
             color: currentTheme.primary,
             textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-            fontFamily: "'Comic Sans MS', cursive"
+            // fontFamily: "'Comic Sans MS', cursive"
           }}
         >
           Welcome Back! 👋
@@ -119,7 +119,7 @@ export default function Login() {
           onClick={handleLogin}
           style={{ 
             backgroundColor: currentTheme.primary,
-            fontFamily: "'Comic Sans MS', cursive"
+            // fontFamily: "'Comic Sans MS', cursive"
           }}
         >
           Let's Play! 🎉
